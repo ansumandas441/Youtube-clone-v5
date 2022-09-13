@@ -1,39 +1,45 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import ReactPlayer from "react-player";
 import { Stack, Box, Typography } from "@mui/material";
 import { CheckCircle } from "@mui/icons-material";
-import { Videos } from "./";
+import { Videos, Loader } from "./";
 import { fetchFromAPI } from "../utils/fetchFromAPI";
 const VideoDetail = () => {
-  const { id } = useParams();
-  const [videoDetail, setVideoDetail] = useState(null);
+  const [videoDetail, setVideoDetail] = useState([]);
   const [videos, setVideos] = useState([]);
+  const { id } = useParams();
 
   useEffect(() => {
     fetchFromAPI(`videos?part=snippet,statistics&id=${id}`).then((data) =>
       setVideoDetail(data.items[0])
     );
 
-    fetchFromAPI(`videos?part=snippet,relatedToVideoId=${id}&type=video`).then(
+    fetchFromAPI(`search?part=snippet&relatedToVideoId=${id}&type=video`).then(
       (data) => setVideos(data.items)
     );
   }, [id]);
+  if (!videoDetail?.snippet) return <Loader />;
 
   // //De-structuring the object snippet
-  // const {snippet} = videoDetail;
+  const {
+    snippet: { title, channelId, channelTitle },
+    statistics: { viewCount, likeCount },
+  } = videoDetail;
+
   return (
     <Box minHeight="92vh">
       <Stack direction={{ xs: "column", md: "row" }}>
         <Box flex={1}>
-          <Box sx={{ width: "100%", position: "sticky", top: "88px" }}>
+          <Box sx={{ width: "90%", position: "sticky", top: "88px" }}>
             <ReactPlayer
               url={`https://www.youtube.com/watch?v=${id}`}
               className="react-player"
               controls
             />
             <Typography color="#fff" variant="h5" p={2}>
-              {videoDetail?.snippet?.title.slice(0, 60)}
+              {title.slice(0, 60)}
             </Typography>
 
             <Stack
@@ -48,13 +54,12 @@ const VideoDetail = () => {
                 color="#AAAAAA"
                 pl={2}
               >
-                {videoDetail?.snippet?.channelTitle}
+                {channelTitle}
                 <CheckCircle
                   sx={{ fontSize: 14, color: "#AAAAAA", ml: "3px", mt: "2px" }}
                 ></CheckCircle>
               </Typography>
 
-              {/* can be linked to the chanelDetail */}
               <Stack
                 direction="row"
                 gap="20px"
@@ -67,10 +72,7 @@ const VideoDetail = () => {
                   fontSize={12}
                   sx={{ opacity: 0.7 }}
                 >
-                  {parseInt(
-                    videoDetail?.statistics?.viewCount
-                  ).toLocaleString()}{" "}
-                  views
+                  {parseInt(viewCount).toLocaleString()} views
                 </Typography>
                 <Typography
                   color="#fff"
@@ -78,25 +80,23 @@ const VideoDetail = () => {
                   fontSize={12}
                   sx={{ opacity: 0.7 }}
                 >
-                  {parseInt(
-                    videoDetail?.statistics?.likeCount
-                  ).toLocaleString()}{" "}
-                  likes
+                  {parseInt(likeCount).toLocaleString()} likes
                 </Typography>
               </Stack>
             </Stack>
           </Box>
         </Box>
+        <Box
+          px={2}
+          py={{ md: 1, xs: 5 }}
+          justifyContent="center"
+          alignItems="center"
+          color="#fff"
+        >
+          Related Videos
+          <Videos />
+        </Box>
       </Stack>
-      <Box
-        px={2}
-        py={{ md: 1, xs: 5 }}
-        justifyContent="center"
-        alignItems="center"
-      >
-        {/* <Videos videos={videos} /> */}
-        New
-      </Box>
     </Box>
   );
 };

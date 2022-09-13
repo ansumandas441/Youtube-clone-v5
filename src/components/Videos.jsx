@@ -1,9 +1,10 @@
 import { Box, Stack } from "@mui/system";
 import React from "react";
-import { VideoCard, ChannelCard } from "./";
+import { VideoCard, ChannelCard, Loader } from "./";
 
 const Videos = ({ videos }) => {
-  console.log(videos);
+  // console.log(videos);
+  if (!videos?.length) return <Loader />;
   return (
     <Stack
       direction={{ xs: "column", sm: "row" }}

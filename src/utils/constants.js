@@ -1,25 +1,31 @@
-import MusicNoteIcon from "@mui/icons-material/MusicNote";
+// import MusicNoteIcon from "@mui/icons-material/MusicNote";
 import HomeIcon from "@mui/icons-material/Home";
-import CodeIcon from "@mui/icons-material/Code";
-import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
-import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
-import LiveTvIcon from "@mui/icons-material/LiveTv";
-import SchoolIcon from "@mui/icons-material/School";
-import FaceRetouchingNaturalIcon from "@mui/icons-material/FaceRetouchingNatural";
-import CheckroomIcon from "@mui/icons-material/Checkroom";
-import GraphicEqIcon from "@mui/icons-material/GraphicEq";
-import TheaterComedyIcon from "@mui/icons-material/TheaterComedy";
-import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
-import DeveloperModeIcon from "@mui/icons-material/DeveloperMode";
+// import CodeIcon from "@mui/icons-material/Code";
+// import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
+// import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
+// import LiveTvIcon from "@mui/icons-material/LiveTv";
+// import SchoolIcon from "@mui/icons-material/School";
+// import FaceRetouchingNaturalIcon from "@mui/icons-material/FaceRetouchingNatural";
+// import CheckroomIcon from "@mui/icons-material/Checkroom";
+// import GraphicEqIcon from "@mui/icons-material/GraphicEq";
+// import TheaterComedyIcon from "@mui/icons-material/TheaterComedy";
+// import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
+// import DeveloperModeIcon from "@mui/icons-material/DeveloperMode";
+
+//New imports
+import ExploreIcon from "@mui/icons-material/Explore";
+import SubscriptionsIcon from "@mui/icons-material/Subscriptions";
+import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
+import CameraIndoorIcon from "@mui/icons-material/CameraIndoor";
 
 export const logo = "https://i.ibb.co/s9Qys2j/logo.png";
 
 export const categories = [
-  { name: "New", icon: <HomeIcon /> },
-  { name: "JS Mastery", icon: <CodeIcon /> },
-  { name: "Coding", icon: <CodeIcon /> },
-  { name: "ReactJS", icon: <CodeIcon /> },
-  { name: "NextJS", icon: <CodeIcon /> },
+  { name: "Home", icon: <HomeIcon /> },
+  { name: "Explore", icon: <ExploreIcon /> },
+  { name: "Shorts", icon: <CameraIndoorIcon /> },
+  { name: "Subscriptions", icon: <SubscriptionsIcon /> },
+  { name: "Library", icon: <VideoLibraryIcon /> },
   // { name: 'Music', icon: <MusicNoteIcon /> },
   // { name: 'Education', icon: <SchoolIcon />, },
   // { name: 'Podcast', icon: <GraphicEqIcon />, },
