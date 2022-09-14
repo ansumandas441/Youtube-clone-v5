@@ -7,14 +7,16 @@ import SearchBar from "./SearchBar";
 const Navbar = () => (
   <Stack
     direction="row"
-    spacing={0}
-    alignItems="center"
+    alignItems="flex-start"
+    justifyContent="flex-start"
+    spacing={52}
+    // pt={4}
     p={2}
     sx={{
       position: "sticky",
       background: "#181818",
       top: 0,
-      justifyContent: "space-between",
+      // justifyContent: "space-between",
     }}
   >
     <Link to="/" style={{ display: "flex", alignItems: "center" }}>
