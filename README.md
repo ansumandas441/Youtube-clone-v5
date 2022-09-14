@@ -7,6 +7,8 @@
 <img width="960" alt="Screenshot 2022-09-14 150322" src="https://user-images.githubusercontent.com/42487965/190119327-2acb9790-7874-4b63-84a3-9cdb5eac8359.png">
 
 <h3>Video player</h3>
+<img width="959" alt="Screenshot 2022-09-14 150409" src="https://user-images.githubusercontent.com/42487965/190119688-cb95efee-82bb-4a5d-90fd-4403d497e59e.png">
+
 <h3>Features</h3>
 <ul>
 <item>API calls</item>
