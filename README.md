@@ -11,8 +11,8 @@
 
 <h3>Features</h3>
 <ul>
-<item>API calls</item>
-<item>Realtime search from of youtube videos</item>
+<item>API calls</item><br>
+<item>Realtime search from of youtube videos</item><br>
 <item>Playable videos</item>
 </ul>
 
