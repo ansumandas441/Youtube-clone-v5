@@ -8,7 +8,7 @@ import { Videos, Loader } from "./";
 import { fetchFromAPI } from "../utils/fetchFromAPI";
 const VideoDetail = () => {
   const [videoDetail, setVideoDetail] = useState([]);
-  const [videos, setVideos] = useState([]);
+  const [videos, setVideos] = useState(null);
   const { id } = useParams();
 
   useEffect(() => {
@@ -32,13 +32,13 @@ const VideoDetail = () => {
     <Box minHeight="92vh">
       <Stack direction={{ xs: "column", md: "row" }}>
         <Box flex={1}>
-          <Box sx={{ width: "100%", position: "sticky", top: "88px" }}>
+          <Box sx={{ width: "100%", position: "sticky", top: "80px" }}>
             <ReactPlayer
               url={`https://www.youtube.com/watch?v=${id}`}
               className="react-player"
               controls
             />
-            <Typography color="#fff" variant="h5" p={2}>
+            <Typography color="#fff" variant="h6" pl={3}>
               {title.slice(0, 60)}
             </Typography>
 
@@ -50,20 +50,20 @@ const VideoDetail = () => {
               px={1}
             >
               <Typography
-                variant={{ sx: "subtitle2", md: "h6" }}
+                variant={{ sx: "subtitle2", md: "h7" }}
                 color="#AAAAAA"
                 pl={2}
               >
                 {channelTitle}
                 <CheckCircle
-                  sx={{ fontSize: 14, color: "#AAAAAA", ml: "3px", mt: "2px" }}
+                  sx={{ fontSize: 8, color: "#AAAAAA", ml: "3px", mt: "2px" }}
                 ></CheckCircle>
               </Typography>
 
               <Stack
                 direction="row"
                 gap="20px"
-                alignItems="center"
+                // alignItems="center"
                 sx={{ flexDirection: "row-reverse" }}
               >
                 <Typography
@@ -86,16 +86,17 @@ const VideoDetail = () => {
             </Stack>
           </Box>
         </Box>
-        {/* <Box
+        <Box
+          // direction="column"
           px={2}
           py={{ md: 1, xs: 5 }}
           justifyContent="center"
           alignItems="center"
           color="#fff"
         >
-          Related Videos
-          <Videos />
-        </Box> */}
+          {/* <span variant="body3">Related Videos</span> */}
+          <Videos videos={videos} direction="column" />
+        </Box>
       </Stack>
     </Box>
   );

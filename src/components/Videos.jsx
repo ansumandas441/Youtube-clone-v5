@@ -2,12 +2,12 @@ import { Box, Stack } from "@mui/system";
 import React from "react";
 import { VideoCard, ChannelCard, Loader } from "./";
 
-const Videos = ({ videos }) => {
+const Videos = ({ videos, direction }) => {
   // console.log(videos);
   if (!videos?.length) return <Loader />;
   return (
     <Stack
-      direction={{ xs: "column", sm: "row" }}
+      direction={direction || "row"}
       flexWrap={{ md: "wrap" }}
       justifyContent="start"
       gap={2}
